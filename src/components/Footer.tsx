@@ -5,48 +5,39 @@ const Footer = () => {
 
   return (
     <footer className="py-12 bg-background border-t border-border">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+      <div className="container mx-auto px-6 lg:px-12">
+        <div className="grid lg:grid-cols-3 gap-8 items-center">
           {/* Logo */}
-          <div className="flex items-center gap-3">
+          <div className="flex items-center">
             <img 
               src={logo} 
-              alt="Aethelmaia Logo" 
-              className="h-10 w-auto"
+              alt="Aethelmaia" 
+              className="h-10 w-auto brightness-0 invert opacity-70"
             />
           </div>
 
           {/* Links */}
-          <div className="flex items-center gap-6 text-sm">
-            <a 
-              href="#services" 
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Services
-            </a>
-            <a 
-              href="#technologies" 
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Technologies
-            </a>
-            <a 
-              href="#contact" 
-              className="text-muted-foreground hover:text-primary transition-colors"
-            >
-              Contact
-            </a>
+          <div className="flex items-center justify-center gap-8">
+            {["Services", "Work", "About", "Contact"].map((link) => (
+              <a 
+                key={link}
+                href={`#${link.toLowerCase()}`} 
+                className="text-xs tracking-[0.2em] uppercase text-muted-foreground hover:text-accent transition-colors duration-300"
+              >
+                {link}
+              </a>
+            ))}
           </div>
 
           {/* Copyright */}
-          <p className="text-sm text-muted-foreground">
-            © {currentYear} Aethelmaia. All rights reserved.
+          <p className="text-xs text-muted-foreground text-right">
+            © {currentYear} Aethelmaia
           </p>
         </div>
 
         {/* Tagline */}
-        <p className="text-center text-muted-foreground/60 text-sm mt-8">
-          Turning your ideas into digital products that work and delight users.
+        <p className="text-center text-muted-foreground/50 text-sm mt-12 font-serif italic">
+          Turning ideas into digital products that work and delight.
         </p>
       </div>
     </footer>

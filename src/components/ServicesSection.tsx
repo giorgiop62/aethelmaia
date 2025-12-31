@@ -1,79 +1,98 @@
-import { Globe, Smartphone, Code2, Palette, Zap, Shield } from "lucide-react";
+import { Globe, Smartphone, Code2, Palette, Zap, ArrowUpRight } from "lucide-react";
 
 const services = [
   {
     icon: Globe,
+    number: "01",
     title: "Web Development",
-    description: "Modern, responsive websites built with React, Vue.js, and cutting-edge technologies that perform beautifully on any device.",
+    description: "Modern, responsive websites built with React, Vue.js, and cutting-edge technologies.",
   },
   {
     icon: Smartphone,
+    number: "02",
     title: "Mobile Apps",
-    description: "Cross-platform mobile applications using Flutter that deliver native-like experiences on iOS and Android.",
+    description: "Cross-platform applications using Flutter for iOS and Android.",
   },
   {
     icon: Code2,
+    number: "03",
     title: "Custom Solutions",
-    description: "Tailored digital products designed to solve your unique business challenges and drive growth.",
+    description: "Tailored digital products designed to solve your unique challenges.",
   },
   {
     icon: Palette,
+    number: "04",
     title: "UI/UX Design",
-    description: "User-centered design that combines aesthetics with functionality to create memorable experiences.",
+    description: "User-centered design that combines aesthetics with functionality.",
   },
   {
     icon: Zap,
-    title: "Performance",
-    description: "Optimized for speed and efficiency, ensuring your digital products load fast and run smoothly.",
-  },
-  {
-    icon: Shield,
-    title: "Maintenance",
-    description: "Ongoing support and updates to keep your digital presence secure, current, and performing at its best.",
+    number: "05",
+    title: "CMS & WordPress",
+    description: "Powerful content management systems that are easy to maintain.",
   },
 ];
 
 const ServicesSection = () => {
   return (
-    <section id="services" className="py-24 lg:py-32 bg-background">
-      <div className="container mx-auto px-4 lg:px-8">
+    <section id="services" className="py-32 lg:py-40 bg-background">
+      <div className="container mx-auto px-6 lg:px-12">
         {/* Section Header */}
-        <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-accent font-semibold text-sm uppercase tracking-wider mb-4 block">
-            What We Do
-          </span>
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
-            From Concept to Launch
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            We offer a complete range of digital services to bring your vision to life,
-            from initial design to ongoing support.
-          </p>
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 mb-20">
+          <div>
+            <div className="flex items-center gap-4 mb-6">
+              <div className="w-12 h-px bg-accent" />
+              <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">
+                What We Do
+              </span>
+            </div>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif">
+              Services
+            </h2>
+          </div>
+          <div className="lg:pt-16">
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              From initial concept to launch and beyond, we offer comprehensive 
+              digital services tailored to your vision and goals.
+            </p>
+          </div>
         </div>
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        {/* Services List */}
+        <div className="border-t border-border">
           {services.map((service, index) => (
             <div
               key={service.title}
-              className="group relative p-8 rounded-2xl bg-gradient-card border border-border/50 hover:border-primary/30 transition-all duration-500 hover:shadow-elegant"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              className="group border-b border-border py-8 lg:py-10 cursor-pointer transition-colors duration-500 hover:bg-card/50"
             >
-              {/* Icon */}
-              <div className="w-14 h-14 rounded-xl bg-secondary flex items-center justify-center mb-6 group-hover:bg-primary/10 transition-colors duration-300">
-                <service.icon className="w-7 h-7 text-primary" />
+              <div className="grid lg:grid-cols-12 gap-6 lg:gap-8 items-center px-2 lg:px-6">
+                {/* Number */}
+                <span className="lg:col-span-1 text-xs text-muted-foreground font-mono">
+                  {service.number}
+                </span>
+                
+                {/* Icon */}
+                <div className="lg:col-span-1">
+                  <div className="w-12 h-12 rounded-full border border-border flex items-center justify-center group-hover:border-accent group-hover:bg-accent/10 transition-all duration-500">
+                    <service.icon className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-colors duration-500" />
+                  </div>
+                </div>
+
+                {/* Title */}
+                <h3 className="lg:col-span-4 text-xl lg:text-2xl font-serif group-hover:text-accent transition-colors duration-500">
+                  {service.title}
+                </h3>
+
+                {/* Description */}
+                <p className="lg:col-span-5 text-muted-foreground text-sm leading-relaxed">
+                  {service.description}
+                </p>
+
+                {/* Arrow */}
+                <div className="lg:col-span-1 flex justify-end">
+                  <ArrowUpRight className="w-5 h-5 text-muted-foreground opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 group-hover:text-accent transition-all duration-500" />
+                </div>
               </div>
-
-              {/* Content */}
-              <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors duration-300">
-                {service.title}
-              </h3>
-              <p className="text-muted-foreground leading-relaxed">
-                {service.description}
-              </p>
-
-              {/* Hover accent line */}
-              <div className="absolute bottom-0 left-8 right-8 h-0.5 bg-accent scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
             </div>
           ))}
         </div>

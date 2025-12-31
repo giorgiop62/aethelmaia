@@ -1,57 +1,52 @@
-import { ArrowRight, Mail, MessageCircle } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
 const ContactSection = () => {
   return (
-    <section id="contact" className="py-24 lg:py-32 bg-primary-dark relative overflow-hidden">
+    <section id="contact" className="py-32 lg:py-40 bg-card relative overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute inset-0">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute bottom-0 right-1/4 w-72 h-72 bg-primary-light/10 rounded-full blur-3xl" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute top-0 left-1/3 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px]" />
       </div>
 
-      <div className="container mx-auto px-4 lg:px-8 relative z-10">
+      <div className="container mx-auto px-6 lg:px-12 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Icon */}
-          <div className="w-16 h-16 rounded-2xl bg-accent/20 flex items-center justify-center mx-auto mb-8">
-            <MessageCircle className="w-8 h-8 text-accent" />
+          {/* Eyebrow */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <div className="w-12 h-px bg-accent" />
+            <span className="text-xs tracking-[0.3em] uppercase text-muted-foreground">
+              Get in Touch
+            </span>
+            <div className="w-12 h-px bg-accent" />
           </div>
 
-          {/* Content */}
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 text-primary-foreground">
-            Ready to Turn Your Ideas Into Reality?
+          {/* Headline */}
+          <h2 className="text-4xl md:text-5xl lg:text-7xl font-serif mb-8">
+            Ready to Create<br />
+            <span className="text-gradient">Something Great?</span>
           </h2>
-          <p className="text-primary-foreground/80 text-lg mb-10 max-w-2xl mx-auto">
-            Let's collaborate to create a digital product that works beautifully 
-            and delights your users. Get in touch and let's start the conversation.
+
+          {/* Description */}
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-12">
+            Let's collaborate to turn your ideas into digital products 
+            that work beautifully and delight your users.
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <Button variant="hero" size="xl">
-              <Mail className="w-5 h-5" />
-              Contact Us
-            </Button>
-            <Button 
-              variant="outline" 
-              size="xl"
-              className="border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary-foreground"
-            >
-              Schedule a Call
-              <ArrowRight className="w-5 h-5" />
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
+            <Button variant="accent" size="xl">
+              Start a Conversation
+              <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
 
           {/* Email */}
-          <p className="mt-10 text-primary-foreground/60 text-sm">
-            Or reach us directly at{" "}
-            <a 
-              href="mailto:hello@aethelmaia.com" 
-              className="text-accent hover:underline font-medium"
-            >
-              hello@aethelmaia.com
-            </a>
-          </p>
+          <a 
+            href="mailto:hello@aethelmaia.com" 
+            className="inline-block text-2xl md:text-3xl font-serif text-foreground hover:text-accent transition-colors duration-300 hover-line"
+          >
+            hello@aethelmaia.com
+          </a>
         </div>
       </div>
     </section>
